@@ -1,0 +1,193 @@
+/**
+ * Variables CSS globales pour l'application Karaoke
+ * Définit les couleurs, gradients, espacements et autres propriétés réutilisables
+ */
+
+:root {
+  /* === Couleurs principales === */
+  --color-primary: #8A2BE2;          /* Violet principal */
+  --color-primary-dark: #4B0082;     /* Indigo */
+  --color-primary-light: #9370DB;    /* Medium slate blue */
+  --color-secondary: #191970;        /* Midnight blue */
+  --color-accent: #E6E6FA;           /* Lavande */
+  
+  /* === Couleurs fonctionnelles === */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-100: rgba(255, 255, 255, 0.1);
+  --color-gray-200: rgba(255, 255, 255, 0.2);
+  --color-gray-300: rgba(255, 255, 255, 0.3);
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  
+  /* === Gradients === */
+  --gradient-purple: radial-gradient(ellipse at center, 
+    rgba(75, 0, 130, 0.9) 0%, 
+    rgba(25, 25, 112, 0.8) 50%, 
+    rgba(72, 61, 139, 0.7) 100%);
+    
+  --gradient-purple-dark: radial-gradient(ellipse at center,
+    rgba(25, 25, 112, 0.8) 0%,
+    rgba(72, 61, 139, 0.7) 50%,
+    rgba(75, 0, 130, 0.9) 100%);
+    
+  --gradient-purple-light: linear-gradient(135deg,
+    rgba(138, 43, 226, 0.8) 0%,
+    rgba(147, 112, 219, 0.6) 50%,
+    rgba(230, 230, 250, 0.4) 100%);
+    
+  --metallic-gradient: linear-gradient(45deg, 
+    #C0C0C0 0%, 
+    #E6E6FA 25%, 
+    #C0C0C0 50%, 
+    #E6E6FA 75%, 
+    #C0C0C0 100%);
+  
+  /* === Ombres === */
+  --shadow-small: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-large: 0 8px 16px rgba(0, 0, 0, 0.2);
+  --shadow-purple: 0 4px 15px rgba(138, 43, 226, 0.3);
+  --shadow-purple-large: 0 8px 25px rgba(138, 43, 226, 0.4);
+  --purple-glow: 0 0 30px rgba(138, 43, 226, 0.8);
+  --purple-glow-light: 0 0 20px rgba(138, 43, 226, 0.5);
+  
+  /* === Espacements === */
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 3rem;     /* 48px */
+  --spacing-3xl: 4rem;     /* 64px */
+  --spacing-4xl: 6rem;     /* 96px */
+  
+  /* === Tailles === */
+  --size-xs: 0.75rem;      /* 12px */
+  --size-sm: 0.875rem;     /* 14px */
+  --size-base: 1rem;       /* 16px */
+  --size-lg: 1.125rem;     /* 18px */
+  --size-xl: 1.25rem;      /* 20px */
+  --size-2xl: 1.5rem;      /* 24px */
+  --size-3xl: 1.875rem;    /* 30px */
+  --size-4xl: 2.25rem;     /* 36px */
+  --size-5xl: 3rem;        /* 48px */
+  --size-6xl: 4rem;        /* 64px */
+  
+  /* === Typography === */
+  --font-family: 'Helvetica Neue', Helvetica, Arial, 'Segoe UI', sans-serif;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.6;
+  --line-height-loose: 2;
+  
+  /* === Border Radius === */
+  --radius-sm: 0.25rem;    /* 4px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 0.75rem;    /* 12px */
+  --radius-xl: 1rem;       /* 16px */
+  --radius-2xl: 1.5rem;    /* 24px */
+  --radius-full: 9999px;
+  
+  /* === Z-index === */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-toast: 1080;
+  
+  /* === Transitions === */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+  --transition-all: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-transform: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-opacity: opacity 300ms ease;
+  --transition-colors: color 300ms ease, background-color 300ms ease, border-color 300ms ease;
+  
+  /* === Breakpoints (pour référence dans les media queries) === */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  
+  /* === Variables spécifiques aux composants === */
+  
+  /* Cards */
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --card-border: 1px solid rgba(255, 255, 255, 0.2);
+  --card-radius: var(--radius-xl);
+  --card-padding: var(--spacing-lg);
+  --card-hover-shadow: var(--shadow-purple-large);
+  
+  /* Buttons */
+  --button-radius: var(--radius-full);
+  --button-padding-x: var(--spacing-lg);
+  --button-padding-y: var(--spacing-md);
+  --button-transition: var(--transition-all);
+  
+  /* Arrows */
+  --arrow-size: 3rem;
+  --arrow-padding: 0.75rem;
+  --arrow-color: rgba(139, 69, 19, 0.9);
+  --arrow-hover-color: rgba(160, 82, 45, 1);
+  --arrow-bg: var(--color-gray-100);
+  --arrow-hover-bg: var(--color-gray-200);
+  --arrow-shadow: var(--shadow-purple);
+  --arrow-border: 2px solid rgba(139, 69, 19, 0.6);
+  
+  /* Backdrop filters */
+  --backdrop-blur: blur(10px);
+  --backdrop-blur-strong: blur(20px);
+  
+  /* Scroll */
+  --scroll-snap-align: start;
+  --scroll-behavior: smooth;
+}
+
+/* === Variations pour le mode sombre (futur) === */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Ajustements pour le mode sombre si nécessaire */
+    --shadow-small: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.4);
+    --shadow-large: 0 8px 16px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* === Responsive adjustments === */
+@media (max-width: 768px) {
+  :root {
+    --spacing-lg: 1rem;
+    --spacing-xl: 1.5rem;
+    --spacing-2xl: 2rem;
+    --spacing-3xl: 2.5rem;
+    
+    --arrow-size: 2.5rem;
+    --arrow-padding: 0.6rem;
+    
+    --card-padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --spacing-md: 0.75rem;
+    --spacing-lg: 1rem;
+    --spacing-xl: 1.25rem;
+    
+    --card-padding: var(--spacing-sm);
+  }
+}

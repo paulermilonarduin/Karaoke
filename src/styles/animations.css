@@ -1,0 +1,316 @@
+/**
+ * Animations globales réutilisables pour l'application Karaoke
+ * Ces animations peuvent être référencées via les variables CSS dans tous les composants
+ */
+
+/* Variables CSS pour les animations */
+:root {
+  /* Durées d'animation */
+  --duration-fast: 0.2s;
+  --duration-normal: 0.3s;
+  --duration-slow: 0.8s;
+  --duration-very-slow: 3s;
+  
+  /* Fonctions de timing */
+  --timing-ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --timing-ease-in-out: cubic-bezier(0.4, 0, 0.6, 1);
+  --timing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Animations prédéfinies */
+  --fade-in-animation: fadeInUp var(--duration-slow) var(--timing-ease-out);
+  --fade-in-up-delayed: fadeInUp var(--duration-slow) var(--timing-ease-out);
+  --metallic-shine: metallicShine var(--duration-very-slow) ease-in-out infinite;
+  --pulse-animation: pulse 2s ease-in-out infinite;
+  --float-animation: float 3s ease-in-out infinite;
+  
+  /* Transforms réutilisables */
+  --hover-lift: translateY(-8px);
+  --hover-scale: scale(1.05);
+  --active-scale: scale(0.95);
+}
+
+/* Animations Fade */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation Scale */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleInBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animations de texte */
+@keyframes metallicShine {
+  0%, 100% {
+    background-position: -200% 0;
+  }
+  50% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 
+      0 0 10px rgba(138, 43, 226, 0.5),
+      0 0 20px rgba(138, 43, 226, 0.3),
+      0 0 30px rgba(138, 43, 226, 0.1);
+  }
+  50% {
+    text-shadow: 
+      0 0 20px rgba(138, 43, 226, 0.8),
+      0 0 30px rgba(138, 43, 226, 0.6),
+      0 0 40px rgba(138, 43, 226, 0.4);
+  }
+}
+
+/* Animations de mouvement */
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translateY(0);
+  }
+  40%, 43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translateY(-30px);
+  }
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translateY(-15px);
+  }
+  90% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Animation de rotation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-200deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+/* Animations de slide */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation de shake */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+  }
+}
+
+/* Animations spécifiques au thème purple/karaoke */
+@keyframes purpleGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(138, 43, 226, 0.8);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Classes utilitaires d'animation */
+.animate-fade-in {
+  animation: fadeIn var(--duration-slow) var(--timing-ease-out);
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp var(--duration-slow) var(--timing-ease-out);
+}
+
+.animate-scale-in {
+  animation: scaleIn var(--duration-normal) var(--timing-ease-out);
+}
+
+.animate-bounce-in {
+  animation: scaleInBounce var(--duration-slow) var(--timing-bounce);
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-metallic-shine {
+  animation: metallicShine var(--duration-very-slow) ease-in-out infinite;
+}
+
+/* Animation delays pour les éléments en séquence */
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }
+.animate-delay-4 { animation-delay: 0.4s; }
+.animate-delay-5 { animation-delay: 0.5s; }
+
+/* Préférences d'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0.01ms;
+    --duration-normal: 0.01ms;
+    --duration-slow: 0.01ms;
+    --duration-very-slow: 0.01ms;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

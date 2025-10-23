@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* Import des variables CSS globales */
+@import './styles/variables.css';
+
+/* Import des animations globales */
+@import './styles/animations.css';
+
 * {
   margin: 0;
   padding: 0;
