@@ -1,0 +1,43 @@
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">LYRICS MAKER</h1>
+    <p class="hero-subtitle">I CAN DO IT</p>
+  </div>
+  <div class="animated-background"></div>
+  
+  <!-- Scroll Arrow -->
+  <div class="scroll-arrow" (click)="scrollToAbout()" [attr.aria-label]="'Scroll to about section'">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7 14L12 19L17 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section" id="about">
+  <div class="about-content">
+    <h2>About Karaoke Lyrics Maker</h2>
+    <p>Create perfect synchronization between your audio tracks and lyrics with precision timing tools.</p>
+    <div class="features">
+      <div class="feature">
+        <h3>Precise Timing</h3>
+        <p>Frame-accurate synchronization for professional results</p>
+      </div>
+      <div class="feature">
+        <h3>Easy Interface</h3>
+        <p>Intuitive tools for quick lyrics timing adjustment</p>
+      </div>
+      <div class="feature">
+        <h3>Multiple Formats</h3>
+        <p>Export to LRC, SRT, JSON, and other popular formats</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Back Arrow -->
+  <div class="scroll-arrow back-arrow" (click)="scrollToHero()" [attr.aria-label]="'Scroll back to hero section'">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17 10L12 5L7 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
