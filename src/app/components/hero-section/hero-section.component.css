@@ -1,0 +1,155 @@
+.hero-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a0033 0%, #2d0066 50%, #1a0033 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease-in-out infinite;
+  color: white;
+  text-align: center;
+  padding: var(--spacing-lg, 2rem);
+  scroll-snap-align: start;
+}
+
+/* Bulles animées en arrière-plan */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.4;
+  background: 
+    radial-gradient(circle 150px at 20% 80%, rgba(179, 102, 255, 0.4) 0%, transparent 70%),
+    radial-gradient(circle 200px at 80% 20%, rgba(75, 0, 130, 0.5) 0%, transparent 65%),
+    radial-gradient(circle 120px at 40% 40%, rgba(138, 43, 226, 0.3) 0%, transparent 80%);
+  animation: floatingBubbles 12s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* Animation du fond dégradé */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Animation des bulles flottantes */
+@keyframes floatingBubbles {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.4;
+  }
+  25% { 
+    transform: translateY(-15px) translateX(5px) scale(1.05);
+    opacity: 0.6;
+  }
+  50% { 
+    transform: translateY(-8px) translateX(-3px) scale(0.95);
+    opacity: 0.3;
+  }
+  75% { 
+    transform: translateY(-12px) translateX(2px) scale(1.02);
+    opacity: 0.5;
+  }
+}
+
+.hero-section__content {
+  max-width: 800px;
+  margin: 0 auto;
+  animation: var(--fade-in-animation, fadeInUp 1s ease-out);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-section__title {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 var(--spacing-md, 1.5rem) 0;
+  background: linear-gradient(45deg, 
+    #C0C0C0 0%, 
+    #E6E6FA 25%, 
+    #C0C0C0 50%, 
+    #E6E6FA 75%, 
+    #C0C0C0 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  animation: gentleMetallicShine 8s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(138, 43, 226, 0.6);
+  font-family: var(--font-family, 'Helvetica Neue', Helvetica, Arial, sans-serif);
+  position: relative;
+  z-index: 1;
+}
+
+/* Animation plus douce pour éviter le clignotement */
+@keyframes gentleMetallicShine {
+  0%, 100% { 
+    background-position: 0% 50%;
+    filter: brightness(1);
+  }
+  50% { 
+    background-position: 100% 50%;
+    filter: brightness(1.05);
+  }
+}
+
+.hero-section__subtitle {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-weight: 300;
+  line-height: 1.6;
+  margin: 0 0 var(--spacing-xl, 3rem) 0;
+  background: linear-gradient(45deg, 
+    #B8B8B8 0%, 
+    #E0E0E0 25%, 
+    #B8B8B8 50%, 
+    #E0E0E0 75%, 
+    #B8B8B8 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  animation: gentleMetallicShine 10s ease-in-out infinite;
+  text-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+  font-family: var(--font-family, 'Helvetica Neue', Helvetica, Arial, sans-serif);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-section__arrow {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+/* Animations de base (fallback) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: var(--spacing-lg, 2rem) var(--spacing-md, 1.5rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: var(--spacing-md, 1.5rem) var(--spacing-sm, 1rem);
+  }
+}

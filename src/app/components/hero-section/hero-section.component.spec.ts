@@ -1,18 +1,24 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ChangeDetectorRef } from '@angular/core';
-import { HeroSectionComponent, HeroContent } from './hero-section.component';
+import { HeroSectionComponent } from './hero-section.component';
 import { ScrollArrowComponent } from '../scroll-arrow/scroll-arrow.component';
 import { ScrollService } from '../../services/scroll.service';
+import { HeroData } from '../../interfaces/hero-data.interface';
 
 describe('HeroSectionComponent', () => {
   let component: HeroSectionComponent;
   let fixture: ComponentFixture<HeroSectionComponent>;
   let scrollServiceSpy: jasmine.SpyObj<ScrollService>;
 
-  const mockHeroContent: HeroContent = {
+  const mockHeroData: HeroData = {
     title: 'Test Title',
     subtitle: 'Test Subtitle',
-    scrollTarget: '#about'
+    about: {
+      title: 'Test About',
+      description: 'Test Description',
+      features: [],
+      scrollTarget: '#home'
+    }
   };
 
   beforeEach(async () => {
@@ -29,7 +35,7 @@ describe('HeroSectionComponent', () => {
     component = fixture.componentInstance;
     scrollServiceSpy = TestBed.inject(ScrollService) as jasmine.SpyObj<ScrollService>;
     
-    component.content = mockHeroContent;
+    component.data = mockHeroData;
     fixture.detectChanges();
   });
 
@@ -49,16 +55,15 @@ describe('HeroSectionComponent', () => {
     expect(fixture.nativeElement.querySelector('app-scroll-arrow')).toBeTruthy();
   });
 
-  it('should hide scroll arrow when scrollTarget is not provided', () => {
-    // Créer un nouveau contenu sans scrollTarget
-    const newContent: HeroContent = {
+  it('should hide scroll arrow when about data is not provided', () => {
+    // Créer un nouveau contenu sans about
+    const newData: HeroData = {
       title: 'Test Title',
       subtitle: 'Test Subtitle'
-      // pas de scrollTarget
-    };
+    } as any;
     
-    // Assigner le nouveau contenu
-    component.content = newContent;
+    // Assigner les nouvelles données
+    component.data = newData;
     
     // Marquer pour vérification (OnPush change detection)
     const cdr = fixture.debugElement.injector.get(ChangeDetectorRef);
@@ -71,7 +76,7 @@ describe('HeroSectionComponent', () => {
 
   it('should have correct hero section ID', () => {
     const heroSection = fixture.nativeElement.querySelector('.hero-section');
-    expect(heroSection.getAttribute('id')).toBe('hero');
+    expect(heroSection.getAttribute('id')).toBe('home');
   });
 
   it('should apply correct CSS classes', () => {

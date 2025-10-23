@@ -77,7 +77,7 @@ import { ScrollService } from '../../services/scroll.service';
     }
 
     .scroll-arrow--up .scroll-arrow__icon {
-      transform: rotate(180deg);
+      transform: rotate(0deg);
     }
 
     .scroll-arrow--down .scroll-arrow__icon {
@@ -85,11 +85,7 @@ import { ScrollService } from '../../services/scroll.service';
     }
 
     .scroll-arrow:hover .scroll-arrow__icon {
-      transform: scale(1.1) rotate(var(--icon-rotation, 0deg));
-    }
-
-    .scroll-arrow--up:hover .scroll-arrow__icon {
-      --icon-rotation: 180deg;
+      transform: scale(1.1);
     }
 
     /* Animation de pulsation pour attirer l'attention */
@@ -169,7 +165,7 @@ export class ScrollArrowComponent {
    */
   get svgPath(): string {
     return this.direction === 'up'
-      ? 'M18 15l-6-6-6 6' // Flèche vers le haut
+      ? 'M18 15l-6-6-6 6'  // Flèche vers le haut
       : 'M6 9l6 6 6-6';    // Flèche vers le bas
   }
 

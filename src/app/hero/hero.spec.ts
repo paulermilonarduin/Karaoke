@@ -41,25 +41,25 @@ describe('Hero', () => {
     
     expect(heroData.title).toBe('LYRICS MAKER');
     expect(heroData.subtitle).toBe('I CAN DO IT');
-    expect(heroData.about.title).toBe('About Karaoke Lyrics Maker');
+    expect(heroData.about.title).toBe('À propos du Créateur de Paroles Karaoké');
     expect(heroData.about.features.length).toBe(3);
     expect(heroData.about.scrollTarget).toBe('#hero');
   });
 
-  it('should compute hero content correctly', () => {
-    const heroContent = component['heroContent']();
+  it('should use hero data directly', () => {
+    const heroData = component['heroData']();
     
-    expect(heroContent.title).toBe('LYRICS MAKER');
-    expect(heroContent.subtitle).toBe('I CAN DO IT');
-    expect(heroContent.scrollTarget).toBe('#about');
+    expect(heroData.title).toBe('LYRICS MAKER');
+    expect(heroData.subtitle).toBe('I CAN DO IT');
+    expect(heroData.about).toBeDefined();
   });
 
   it('should compute about data correctly', () => {
     const aboutData = component['aboutData']();
     
-    expect(aboutData.title).toBe('About Karaoke Lyrics Maker');
+    expect(aboutData.title).toBe('À propos du Créateur de Paroles Karaoké');
     expect(aboutData.features.length).toBe(3);
-    expect(aboutData.features[0].title).toBe('Precise Timing');
+    expect(aboutData.features[0].title).toBe('Timing Ultra-Précis');
     expect(aboutData.features[0].icon).toBe('🎯');
   });
 

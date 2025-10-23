@@ -34,6 +34,13 @@ Modern Angular 20 application using standalone components architecture, bootstra
 - Components auto-generate as standalone with proper imports
 - All schematics create modern standalone architecture
 
+### Component Styling Architecture
+- **ALWAYS use separate CSS files**: Create `component-name.component.css` files instead of inline styles
+- Use `styleUrl: './component-name.component.css'` in component decorator
+- **NEVER use inline `styles: []`** - maintain clean separation of concerns
+- CSS files should be co-located with component TypeScript files
+- This approach improves maintainability, readability, and IDE support
+
 ## Configuration Details
 
 ### TypeScript Setup

@@ -77,21 +77,10 @@ describe('AboutSectionComponent', () => {
     expect(fixture.nativeElement.querySelector('app-scroll-arrow')).toBeTruthy();
   });
 
-  it('should hide scroll arrow when scrollTarget is not provided', () => {
-    // Créer de nouvelles données sans scrollTarget
-    const newData: AboutData = {
-      ...mockAboutData,
-      scrollTarget: undefined
-    };
-    
-    component.data = newData;
-    
-    // Marquer pour vérification (OnPush change detection)
-    const cdr = fixture.debugElement.injector.get(ChangeDetectorRef);
-    cdr.markForCheck();
-    fixture.detectChanges();
-
-    expect(fixture.nativeElement.querySelector('.about-section__arrow')).toBeNull();
+  it('should always show scroll arrow', () => {
+    // La flèche est maintenant toujours affichée avec un target fixe
+    expect(fixture.nativeElement.querySelector('.about-section__arrow')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('app-scroll-arrow')).toBeTruthy();
   });
 
   it('should hide features when empty array', () => {

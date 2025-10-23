@@ -1,0 +1,189 @@
+.about-section {
+  min-height: 100vh;
+  padding: var(--spacing-xl, 3rem) var(--spacing-lg, 2rem);
+  background: linear-gradient(135deg, #1a0033 0%, #2d0066 50%, #1a0033 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease-in-out infinite;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+/* Animation du fond dégradé (même que hero) */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.about-section__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.about-section__header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl, 3rem);
+  animation: var(--fade-in-animation, fadeInUp 0.8s ease-out);
+}
+
+.about-section__title {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 700;
+  margin: 0 0 var(--spacing-md, 1.5rem) 0;
+  background: linear-gradient(45deg,
+    #C0C0C0 0%,
+    #E6E6FA 25%,
+    #C0C0C0 50%,
+    #E6E6FA 75%,
+    #C0C0C0 100%)
+  ;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  animation: gentleMetallicShine 8s ease-in-out infinite;
+  font-family: var(--font-family, 'Helvetica Neue', Helvetica, Arial, sans-serif);
+}
+
+/* Animation plus douce pour éviter le clignotement */
+@keyframes gentleMetallicShine {
+  0%, 100% { 
+    background-position: 0% 50%;
+    filter: brightness(1);
+  }
+  50% { 
+    background-position: 100% 50%;
+    filter: brightness(1.05);
+  }
+}
+
+.about-section__description {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: var(--font-family, 'Helvetica Neue', Helvetica, Arial, sans-serif);
+}
+
+.about-section__features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg, 2rem);
+  margin-bottom: var(--spacing-xl, 3rem);
+}
+
+.feature-card {
+  background: var(--card-bg, rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: var(--spacing-lg, 2rem);
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: var(--fade-in-up-delayed, fadeInUp 0.8s ease-out);
+}
+
+.feature-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.feature-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.feature-card:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: var(--card-hover-shadow,
+    0 20px 40px rgba(138, 43, 226, 0.3)
+  );
+}
+
+.feature-card__icon {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: var(--spacing-md, 1rem);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.feature-card__title {
+  font-size: clamp(1.125rem, 4vw, 1.5rem);
+  font-weight: 600;
+  margin: 0 0 var(--spacing-sm, 1rem) 0;
+  color: #E6E6FA;
+  font-family: var(--font-family, 'Helvetica Neue', Helvetica, Arial, sans-serif);
+}
+
+.feature-card__description {
+  font-size: clamp(0.875rem, 3vw, 1rem);
+  font-weight: 300;
+  line-height: 1.6;
+  opacity: 0.85;
+  margin: 0;
+  font-family: var(--font-family, 'Helvetica Neue', Helvetica, Arial, sans-serif);
+}
+
+.about-section__arrow {
+  position: absolute;
+  top: var(--spacing-lg, 2rem);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+/* Animations de base (fallback) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes metallicShine {
+  0%, 100% {
+    background-position: -200% 0;
+  }
+  50% {
+    background-position: 200% 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-section {
+    padding: var(--spacing-lg, 2rem) var(--spacing-md, 1.5rem);
+  }
+
+  .about-section__features {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md, 1.5rem);
+  }
+
+  .feature-card {
+    padding: var(--spacing-md, 1.5rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: var(--spacing-md, 1.5rem) var(--spacing-sm, 1rem);
+  }
+
+  .feature-card {
+    padding: var(--spacing-sm, 1rem);
+  }
+}
